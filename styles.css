@@ -1,0 +1,345 @@
+/* Taskbar Base Container */
+.taskbar {
+  height: 48px;
+  background-color: #477bff !important;
+}
+
+/* Standard App Icons */
+.taskbar-icon {
+  width: 24px;
+  height: 24px;
+}
+
+/* Active App Indicator Line */
+.active-indicator {
+  width: 16px;
+  height: 3px;
+}
+
+/* System Tray Text */
+.system-tray {
+  font-size: 0.85rem;
+}
+
+/* Wifi Icon in Tray */
+.tray-icon-wifi {
+  width: 16px;
+  height: 16px;
+  opacity: 0.7;
+}
+
+/* System Tray Clock Text */
+.tray-clock {
+  font-size: 0.75rem;
+  color: black;
+}
+
+/* Remove default Bootstrap button backgrounds */
+.taskbar-btn {
+  background-color: transparent !important;
+  color: white !important;
+  transition: background-color 0.2s ease;
+}
+
+/* Subtle highlight when hovering over an icon */
+.taskbar-btn:hover {
+  background-color: rgba(255, 255, 255, 0.15) !important;
+}
+
+/* Give the active app button a slightly brighter background if desired */
+.taskbar-btn.active {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Ensure Bootstrap buttons inside the taskbar are fully transparent */
+.taskbar .btn {
+  background-color: transparent !important;
+  color: inherit !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+}
+
+/* Subtle hover/focus highlight for taskbar buttons */
+.taskbar .btn {
+  transition:
+    background-color 0.15s ease,
+    transform 0.06s ease;
+  border-radius: 6px;
+}
+.taskbar .btn:hover,
+.taskbar .btn:focus {
+  background-color: rgba(255, 255, 255, 0.08) !important;
+  box-shadow: none !important;
+  outline: none !important;
+  transform: translateY(-1px);
+}
+.taskbar .btn:active {
+  background-color: rgba(255, 255, 255, 0.12) !important;
+  transform: translateY(0);
+}
+
+/* If you use images directly, remove any display artifacts */
+.taskbar-icon,
+.tray-icon-wifi {
+  display: block;
+}
+
+/* Start menu (opens upward/backwards) */
+.start-menu {
+  position: fixed;
+  bottom: 56px; /* just above the taskbar */
+  left: 8px; /* align near the start button */
+  min-width: 240px;
+  background: linear-gradient(
+    180deg,
+    rgba(70, 100, 220, 0.96),
+    rgba(22, 34, 90, 0.94)
+  );
+  color: #fff;
+  border-radius: 12px;
+  padding: 8px;
+  box-shadow:
+    0 18px 48px rgba(8, 16, 48, 0.7),
+    inset 0 1px 0 rgba(255, 255, 255, 0.02);
+  backdrop-filter: blur(8px) saturate(120%);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  z-index: 1050;
+}
+.start-menu.hidden {
+  display: none;
+}
+.start-menu .app-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.start-menu .app-item img {
+  width: 22px;
+  height: 22px;
+  filter: drop-shadow(0 1px 0 rgba(0, 0, 0, 0.45));
+}
+.start-menu .app-item span {
+  color: rgba(255, 255, 255, 0.95);
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+.start-menu .app-item:hover,
+.start-menu .app-item:focus {
+  background-color: rgba(255, 255, 255, 0.06);
+}
+
+.settings-page {
+  min-height: calc(100vh - 48px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 20px 20px;
+  background: rgba(255, 255, 255, 0.04);
+}
+.settings-card {
+  width: min(720px, 100%);
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+  box-shadow: none;
+}
+.settings-card h1 {
+  margin-bottom: 28px;
+  color: #000000;
+  font-size: 2rem;
+  font-weight: 600;
+}
+.setting-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  padding: 18px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+.setting-row:first-child {
+  border-top: none;
+}
+.setting-label {
+  color: #000000;
+  font-size: 1rem;
+  font-weight: 600;
+}
+.setting-desc {
+  color: #000000;
+  font-size: 0.92rem;
+  margin-top: 4px;
+}
+
+.files-page {
+  min-height: calc(100vh - 48px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 20px 20px;
+  background: rgba(255, 255, 255, 0.04);
+}
+.files-content {
+  width: min(720px, 100%);
+  text-align: left;
+}
+.files-content h1 {
+  margin-bottom: 26px;
+  color: #000000;
+  font-size: 2rem;
+  font-weight: 600;
+}
+.files-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+}
+.file-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 14px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 18px;
+  border: 1px solid rgba(15, 23, 54, 0.08);
+}
+.file-item img {
+  width: 32px;
+  height: 32px;
+}
+.file-item strong {
+  display: block;
+  color: #111827;
+  font-size: 1rem;
+  margin-bottom: 4px;
+}
+.file-item p {
+  margin: 0;
+  color: #475569;
+  font-size: 0.92rem;
+}
+
+.toggle-switch {
+  position: relative;
+  display: inline-block;
+  width: 56px;
+  height: 30px;
+}
+.toggle-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.toggle-switch .slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(148, 163, 184, 0.4);
+  border-radius: 999px;
+  transition: background-color 0.2s ease;
+}
+.toggle-switch .slider::before {
+  position: absolute;
+  content: "";
+  height: 22px;
+  width: 22px;
+  left: 4px;
+  top: 4px;
+  background-color: #fff;
+  border-radius: 50%;
+  transition: transform 0.2s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.16);
+}
+.toggle-switch input:checked + .slider {
+  background-color: #3b82f6;
+}
+.toggle-switch input:checked + .slider::before {
+  transform: translateX(26px);
+}
+
+/* Google-style Search Bar */
+body {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  padding-bottom: 48px;
+}
+
+.search-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  padding: 40px 20px;
+}
+
+.search-container h1 {
+  color: white;
+  font-size: 56px;
+  font-weight: 400;
+  margin-bottom: 40px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  letter-spacing: 2px;
+}
+
+.search-form {
+  width: 100%;
+  max-width: 600px;
+}
+
+.search-wrapper {
+  display: flex;
+  align-items: center;
+  background: white;
+  border-radius: 24px;
+  padding: 12px 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  transition: box-shadow 0.3s ease;
+}
+
+.search-wrapper:focus-within {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+}
+
+.search-input {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  color: #333;
+  background: transparent;
+  font-family: inherit;
+}
+
+.search-input::placeholder {
+  color: #999;
+}
+
+.search-button {
+  background: transparent;
+  border: none;
+  color: #477bff;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 0 12px;
+  font-size: 14px;
+  transition: color 0.2s ease;
+}
+
+.search-button:hover {
+  color: #3860cc;
+}
+
+.search-title {
+  color: #333 !important;
+}
